@@ -1,0 +1,221 @@
+using System;
+
+namespace GameProgramming
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string playerName;
+
+            int vikingpoints = 0;
+            int samuraiPoints = 0;
+            int apachePoints = 0;
+            int mongolPoints = 0;
+            int ottomanDeliPoints = 0;
+            int romanLegionaryPoints = 0;
+
+            //Viking          - uses axes     - light armor - fights for fight itself - fights with power       - wants to drink more
+            //Samuray         - uses sword    - mid armor   - fights for honour       - fights with technic     - wants order
+            //Apache          - uses axe      - no armor    - fights for tribe        - fights with being agile - wants peace
+            //Mongol          - uses sword    - light armor - fights for king         - fights with being agile - wants fame
+            //Ottoman Deli    - uses barehand - no armor    - fights for fight itself - fights with power       - wants fame
+            //Roman Legionary - uses sword    - heavy armor - fights for king         - fights with technic     - wants order
+
+            Console.WriteLine("Please enter your name:");
+            playerName = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Get ready for test :)");
+            Console.WriteLine("This test will declare which warrior you would be in your previous life.");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("QUESTION 1 :");
+            Console.WriteLine("Which weapon would you use to butcher your enemies?");
+            Console.WriteLine("1 - Sword ");
+            Console.WriteLine("2 - Axe");
+            Console.WriteLine("3 - Barehand");
+            string answer1 = Console.ReadLine();
+            if (answer1 == "1")
+            {
+                samuraiPoints++;
+                mongolPoints++;
+                romanLegionaryPoints++;
+            }
+            else if (answer1 == "2")
+            {
+                vikingpoints++;
+                apachePoints++;
+            }
+            else if (answer1 == "3")
+            {
+                ottomanDeliPoints++;
+            }
+
+
+            Console.WriteLine("QUESTION 2 :");
+            Console.WriteLine("What type of armor would you wear to protect your precious body ?");
+            Console.WriteLine("1 - No Armor ");
+            Console.WriteLine("2 - Light Armor");
+            Console.WriteLine("3 - Mid Armor");
+            Console.WriteLine("4 - Heavy Armor");
+            string answer2 = Console.ReadLine();
+            if (answer2 == "1")
+            {
+                ottomanDeliPoints++;
+                apachePoints++;
+            }
+            else if (answer2 == "2")
+            {
+                vikingpoints++;
+                mongolPoints++;
+            }
+            else if (answer2 == "3")
+            {
+                samuraiPoints++;
+            }
+            else if (answer2 == "4")
+            {
+                romanLegionaryPoints++;
+            }
+
+            Console.WriteLine("QUESTION 3 :");
+            Console.WriteLine("What would motive you more to became the greatest warrior of all time ?");
+            Console.WriteLine("1 - For the King ");
+            Console.WriteLine("2 - For Your People");
+            Console.WriteLine("3 - For Honour");
+            Console.WriteLine("4 - For the Fight Itself");
+            string answer3 = Console.ReadLine();
+            if (answer3 == "1")
+            {
+                mongolPoints++;
+                romanLegionaryPoints++;
+            }
+            else if (answer3 == "2")
+            {
+                apachePoints++;
+            }
+            else if (answer3 == "3")
+            {
+                samuraiPoints++;
+            }
+            else if (answer3 == "4")
+            {
+                ottomanDeliPoints++;
+                vikingpoints++;
+            }
+            Console.WriteLine("QUESTION 4 :");
+            Console.WriteLine("How would you fight to destroy everything that comes to your way?");
+            Console.WriteLine("1 - With Absolute Power ");
+            Console.WriteLine("2 - Being Agile Like a Butterfly");
+            Console.WriteLine("3 - With an incredible technic");
+            string answer4 = Console.ReadLine();
+            if (answer4 == "1")
+            {
+                vikingpoints++;
+                ottomanDeliPoints++;
+            }
+            else if (answer4 == "2")
+            {
+                apachePoints++;
+                mongolPoints++;
+            }
+            else if (answer4 == "3")
+            {
+                samuraiPoints++;
+                romanLegionaryPoints++;
+            }
+
+            Console.WriteLine("QUESTION 5 :");
+            Console.WriteLine("Last Question, What is your ultimate wish ?");
+            Console.WriteLine("1 - Peace, Finally Peace ");
+            Console.WriteLine("2 - Order, Order, Order");
+            Console.WriteLine("3 - Being more famous then Attila");
+            Console.WriteLine("4 - DRINK MORE");
+            string answer5 = Console.ReadLine();
+            if (answer5 == "1")
+            {
+                apachePoints++;
+            }
+            else if (answer5 == "2")
+            {
+                romanLegionaryPoints++;
+                samuraiPoints++;
+            }
+            else if (answer5 == "3")
+            {
+                mongolPoints++;
+                ottomanDeliPoints++;
+            }
+            else if (answer5 == "4")
+            {
+                vikingpoints++;
+            }
+            int biggestNumber = -1;
+            int declaredNumber = -1;
+            for (int i = 0; i < 6; i++)
+            {
+                if (i == 0 && biggestNumber < vikingpoints)
+                {
+                    biggestNumber = vikingpoints;
+                    declaredNumber = 0;
+                }
+                if (i == 1 && biggestNumber < apachePoints)
+                {
+                    biggestNumber = apachePoints;
+                    declaredNumber = 1;
+
+                }
+                if (i == 2 && biggestNumber < samuraiPoints)
+                {
+                    biggestNumber = samuraiPoints;
+                    declaredNumber = 2;
+
+                }
+                if (i == 3 && biggestNumber < mongolPoints)
+                {
+                    biggestNumber = mongolPoints;
+                    declaredNumber = 3;
+
+                }
+                if (i == 4 && biggestNumber < ottomanDeliPoints)
+                {
+                    biggestNumber = ottomanDeliPoints;
+                    declaredNumber = 4;
+
+                }
+                if (i == 5 && biggestNumber < romanLegionaryPoints)
+                {
+                    biggestNumber = romanLegionaryPoints;
+                    declaredNumber = 5;
+
+                }
+            }
+            Console.WriteLine("Your fate has been sealed " + playerName);
+            if (declaredNumber == 0)
+            {
+                Console.WriteLine("You would be a mighty Viking. Your raids would be known by everyone.");
+            }
+            else if (declaredNumber == 1)
+            {
+                Console.WriteLine("You would be a wild apache. You would do anything for your tribe.");
+            }
+            else if (declaredNumber == 2)
+            {
+                Console.WriteLine("You would be a honourable samurai. Your sword would be sharp but your word would be sharper.");
+            }
+            else if (declaredNumber == 3)
+            {
+                Console.WriteLine("You would be a horsed mongol warrior. You would ride your horse to the infinite steppes.");
+            }
+            else if (declaredNumber == 4)
+            {
+                Console.WriteLine("You would be a ottoman deli. Nothing would stand on your way.");
+            }
+            else if (declaredNumber == 5)
+            {
+                Console.WriteLine("You would be a roman legionare. For the Emperor!");
+            }
+            Console.ReadLine();
+        }
+    }
+}
